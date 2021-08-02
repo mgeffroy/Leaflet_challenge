@@ -1,7 +1,7 @@
 // Create map object  
-var myMap = L.map("map", {
+var myMap = L.map("mapid", {
     center: [
-      37.09, -95.71
+      20.09, -50.71
     ],
     zoom: 4,
 });
@@ -16,9 +16,10 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap)
 
 // Get GeoJSON information 
+// console log to see characterstics and 
 
 
-//Create markers for earthquakes 
-
+//Create markers for earthquakes ( circles)
+// Markers are different colors and sizes depending on magnitude 
 
 
