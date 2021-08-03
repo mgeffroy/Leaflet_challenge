@@ -33,7 +33,7 @@ d3.json(gJURL).then(data =>{
     // 
     for (var i=0; i<data.features.length; i++){
         var coordinates = data.features[i].geometry.coordinates;
-       // console.log(coordinates);
+        console.log(coordinates[2]);
 
        //console.log(data.features[i].properties.mag)
 
