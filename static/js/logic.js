@@ -4,28 +4,38 @@ function markerSize(mag) {
   }
 
 //Create color function 
-function depthColor(coordinates) {
-    if ( coordinates>= 100) {
-        color = "red";
-      }
-      else if (coordinates <= 99 && coordinates >= 80) {
-        color = "blue";
-      }
-      else if (coordinates <= 79 && coordinates >= 60) {
-        color = "yellow";
-      }
-      else if (coordinates <= 59 && coordinates >= 40) {
-        color = "purple";
-      }
-      else if (coordinates <= 39 && coordinates >= 20) {
-        color = "white";
-      }
-      else {
-        color = "green";
-      }
+// function depthColor(coordinates) {
+//     if ( coordinates>= 100) {
+//         color = "red";
+//       }
+//       else if (coordinates <= 99 && coordinates >= 80) {
+//         color = "blue";
+//       }
+//       else if (coordinates <= 79 && coordinates >= 60) {
+//         color = "yellow";
+//       }
+//       else if (coordinates <= 59 && coordinates >= 40) {
+//         color = "purple";
+//       }
+//       else if (coordinates <= 39 && coordinates >= 20) {
+//         color = "white";
+//       }
+//       else {
+//         color = "green";
+//       }
 
 
-};
+//};
+function getColor(coordinates) {
+    return coordinates > 1000 ? '#800026' :
+           coordinates> 500  ? '#BD0026' :
+           coordinates > 200  ? '#E31A1C' :
+           coordinates> 60 ? '#FC4E2A' :
+           coordinates > 40   ? '#FD8D3C' :
+           coordinates > 20   ? '#FEB24C' :
+           coordinates > 10   ? '#FED976' :
+                      '#FFEDA0';
+}
 
 
 // Create map object  
@@ -62,8 +72,8 @@ d3.json(gJURL).then(data =>{
 
        if (coordinates){
           L.circle([coordinates[1],coordinates[0]], {
-              color:depthColor(data.features[i].geometry.coordinates[3]),
-              fillColor:depthColor(data.features[i].geometry.coordinates[3]),
+              color:getColor(data.features[i].geometry.coordinates[2]),
+              fillColor:getColor(data.features[i].geometry.coordinates[2]),
               fillOpacity:.5,
               radius:markerSize(data.features[i].properties.mag)
           }).addTo(myMap);
