@@ -4,14 +4,36 @@ function markerSize(mag) {
   }
 
 //Create color function 
+function depthColor(coordinates) {
+    if ( coordinates[3]>= 100) {
+        color = "red";
+      }
+      else if (coordinates[3] <= 99 && coordinates[3] >= 80) {
+        color = "orangered";
+      }
+      else if (coordinates[3] <= 79 && coordinates[3] >= 60) {
+        color = "orange";
+      }
+      else if (coordinates[3] <= 59 && coordinates[3] >= 40) {
+        color = "yellow";
+      }
+      else if (coordinates[3] <= 39 && coordinates[3] >= 20) {
+        color = "greenyellow";
+      }
+      else {
+        color = "green";
+      }
+
+
+};
 
 
 // Create map object  
 var myMap = L.map("mapid", {
     center: [
-      20.09, -50.71
+      30.09, -60.71
     ],
-    zoom: 4,
+    zoom: 3.5,
 });
 // Create title layer 
 L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
