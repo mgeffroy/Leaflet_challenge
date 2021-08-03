@@ -1,3 +1,11 @@
+// Create markersize function 
+function markerSize(mag) {
+    return mag * 20000;
+  }
+
+//Create color function 
+
+
 // Create map object  
 var myMap = L.map("mapid", {
     center: [
@@ -16,10 +24,42 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap)
 
 // Get GeoJSON information 
-// console log to see characterstics and 
+var gJURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+
+d3.json(gJURL).then(data =>{
+    // console log to see characterstics and elements(features)
+    console.log(data.features)
+
+    // 
+    for (var i=0; i<data.features.length; i++){
+        var coordinates = data.features[i].geometry.coordinates;
+       // console.log(coordinates);
+
+       //console.log(data.features[i].properties.mag)
+
+       if (coordinates){
+          L.circle([coordinates[1],coordinates[0]], {
+              color:"green",
+              fillColor:"green",
+              fillOpacity:.5,
+              radius:markerSize(data.features[i].properties.mag)
+          }).addTo(myMap);
+        }
+    }
+});
 
 
-//Create markers for earthquakes ( circles)
-// Markers are different colors and sizes depending on magnitude 
+
+//Create markers for earthquakes (circles)
+
+// Markers are different size depending on magnitude
+
+// Different color depending on depth
+
+// Use switch for them to be different colors or if/else 
+
+// add popup explaining place 
+
+// do we need hoverning events? 
 
 
