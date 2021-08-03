@@ -5,20 +5,20 @@ function markerSize(mag) {
 
 //Create color function 
 function depthColor(coordinates) {
-    if ( coordinates[3]>= 100) {
+    if ( coordinates>= 100) {
         color = "red";
       }
-      else if (coordinates[3] <= 99 && coordinates[3] >= 80) {
-        color = "orangered";
+      else if (coordinates <= 99 && coordinates >= 80) {
+        color = "blue";
       }
-      else if (coordinates[3] <= 79 && coordinates[3] >= 60) {
-        color = "orange";
-      }
-      else if (coordinates[3] <= 59 && coordinates[3] >= 40) {
+      else if (coordinates <= 79 && coordinates >= 60) {
         color = "yellow";
       }
-      else if (coordinates[3] <= 39 && coordinates[3] >= 20) {
-        color = "greenyellow";
+      else if (coordinates <= 59 && coordinates >= 40) {
+        color = "purple";
+      }
+      else if (coordinates <= 39 && coordinates >= 20) {
+        color = "white";
       }
       else {
         color = "green";
@@ -55,14 +55,15 @@ d3.json(gJURL).then(data =>{
     // 
     for (var i=0; i<data.features.length; i++){
         var coordinates = data.features[i].geometry.coordinates;
-        console.log(coordinates[2]);
-
+        
+        // See the numbers for our colros and variables 
+        //console.log(coordinates[2]);
        //console.log(data.features[i].properties.mag)
 
        if (coordinates){
           L.circle([coordinates[1],coordinates[0]], {
-              color:"green",
-              fillColor:"green",
+              color:depthColor(data.features[i].geometry.coordinates[3]),
+              fillColor:depthColor(data.features[i].geometry.coordinates[3]),
               fillOpacity:.5,
               radius:markerSize(data.features[i].properties.mag)
           }).addTo(myMap);
