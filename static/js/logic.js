@@ -4,37 +4,15 @@ function markerSize(mag) {
   }
 
 //Create color function 
-// function depthColor(coordinates) {
-//     if ( coordinates>= 100) {
-//         color = "red";
-//       }
-//       else if (coordinates <= 99 && coordinates >= 80) {
-//         color = "blue";
-//       }
-//       else if (coordinates <= 79 && coordinates >= 60) {
-//         color = "yellow";
-//       }
-//       else if (coordinates <= 59 && coordinates >= 40) {
-//         color = "purple";
-//       }
-//       else if (coordinates <= 39 && coordinates >= 20) {
-//         color = "white";
-//       }
-//       else {
-//         color = "green";
-//       }
-
-
-//};
+// tried making and if/else function but it didn't work. Found this on  https://leafletjs.com/examples/choropleth/
 function getColor(coordinates) {
-    return coordinates > 1000 ? '#800026' :
-           coordinates> 500  ? '#BD0026' :
-           coordinates > 200  ? '#E31A1C' :
-           coordinates> 60 ? '#FC4E2A' :
-           coordinates > 40   ? '#FD8D3C' :
-           coordinates > 20   ? '#FEB24C' :
-           coordinates > 10   ? '#FED976' :
-                      '#FFEDA0';
+    return coordinates > 100 ? '#cc0000' :
+           coordinates> 80  ? '#ff7800' :
+           coordinates> 60 ? '#ff9234' :
+           coordinates > 40   ? '#ffee00' :
+           coordinates > 20   ? '#fff976' :
+           coordinates > 10   ? '#82cc00' :
+                      '#008a33';
 }
 
 
@@ -71,7 +49,10 @@ d3.json(gJURL).then(data =>{
        //console.log(data.features[i].properties.mag)
 
        if (coordinates){
+           //Create markers for earthquakes (circles)
           L.circle([coordinates[1],coordinates[0]], {
+              // Markers are different size depending on magnitude
+            // Different color depending on depth
               color:getColor(data.features[i].geometry.coordinates[2]),
               fillColor:getColor(data.features[i].geometry.coordinates[2]),
               fillOpacity:.5,
@@ -82,17 +63,8 @@ d3.json(gJURL).then(data =>{
 });
 
 
-
-//Create markers for earthquakes (circles)
-
-// Markers are different size depending on magnitude
-
-// Different color depending on depth
-
-// Use switch for them to be different colors or if/else 
-
-// add popup explaining place 
-
-// do we need hoverning events? 
+// add popup explaining place depth and magnitude when hovering over circle 
+// add square explaining the depth of the 
+ 
 
 
