@@ -57,14 +57,18 @@ d3.json(gJURL).then(data =>{
               fillColor:getColor(data.features[i].geometry.coordinates[2]),
               fillOpacity:.5,
               radius:markerSize(data.features[i].properties.mag)
-          }).addTo(myMap);
+          })//.bindPopup("<h1>" +" Place of earthquake" + data.features.properties.place + "</h1> <hr> <h2>" + "Magnitude:" + data.features.properties.mag + "</h2> <br> <h2>" +  "Depth:"+ data.features.geometry.coordinates[2] + "</h2>")
+          .addTo(myMap);
         }
     }
 });
 
 
 // add popup explaining place depth and magnitude when hovering over circle 
-// add square explaining the depth of the 
+
+
+
+// add square explaining the color code 
  
 
 
