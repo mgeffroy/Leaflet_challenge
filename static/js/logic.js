@@ -40,31 +40,35 @@ d3.json(gJURL).then(data =>{
     // console log to see characterstics and elements(features)
     console.log(data.features)
 
-    // 
+    // Start loop to go through data 
     for (var i=0; i<data.features.length; i++){
         var coordinates = data.features[i].geometry.coordinates;
         
-        // See the numbers for our colros and variables 
-        //console.log(coordinates[2]);
+       // See the numbers for our colors and variables 
+       //console.log(coordinates[2]);
        //console.log(data.features[i].properties.mag)
+       // Markers are different size depending on magnitude
+       // Different color depending on depth
+      var circleCharac = {
+            color:getColor(data.features[i].geometry.coordinates[2]),
+            fillColor:getColor(data.features[i].geometry.coordinates[2]),
+            fillOpacity:.5,
+            radius:markerSize(data.features[i].properties.mag)};
+
 
        if (coordinates){
            //Create markers for earthquakes (circles)
-          L.circle([coordinates[1],coordinates[0]], {
-              // Markers are different size depending on magnitude
-            // Different color depending on depth
-              color:getColor(data.features[i].geometry.coordinates[2]),
-              fillColor:getColor(data.features[i].geometry.coordinates[2]),
-              fillOpacity:.5,
-              radius:markerSize(data.features[i].properties.mag)
-          })//.bindPopup("<h1>" +" Place of earthquake" + data.features.properties.place + "</h1> <hr> <h2>" + "Magnitude:" + data.features.properties.mag + "</h2> <br> <h2>" +  "Depth:"+ data.features.geometry.coordinates[2] + "</h2>")
+          var marker = L.circle([coordinates[1],coordinates[0]], circleCharac)
           .addTo(myMap);
+         
+          // add popup explaining place depth and magnitude when hovering over circle 
+         marker.bindPopup("<h1>" +" Place of earthquake" + data.features[i].properties.place + "</h1> <hr> <h2>" + "Magnitude:" + data.features.properties.mag + "</h2> <br> <h2>" +  "Depth:"+ data.features.geometry.coordinates[2] + "</h2>")
+         .addTo(myMap);
         }
     }
 });
 
 
-// add popup explaining place depth and magnitude when hovering over circle 
 
 
 
