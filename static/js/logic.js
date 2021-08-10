@@ -62,7 +62,7 @@ d3.json(gJURL).then(data =>{
           .addTo(myMap);
          
           // add popup explaining place depth and magnitude when hovering over circle 
-         marker.bindPopup("<h1>" +" Place of earthquake" + data.features[i].properties.place + "</h1> <hr> <h2>" + "Magnitude:" + data.features[i].properties.mag + "</h2> <br> <h2>" +  "Depth:"+ data.features[i].geometry.coordinates[2] + "</h2>")
+         marker.bindPopup("<h1>" +" Place of earthquake: <br>" + data.features[i].properties.place + "</h1> <hr> <h2>" + "Magnitude: " + data.features[i].properties.mag + "</h2> <h2>" +  "Depth: "+ data.features[i].geometry.coordinates[2] + "</h2>")
          .addTo(myMap);
         }
     }
