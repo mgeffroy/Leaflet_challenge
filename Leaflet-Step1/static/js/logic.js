@@ -66,7 +66,7 @@ d3.json(gJURL).then(data =>{
          .addTo(myMap);
         }
     }
-/*Legend specific*/
+/*Legend specific*/ // got code frome: https://codepen.io/haakseth/pen/KQbjdO
 var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function(myMap) {
