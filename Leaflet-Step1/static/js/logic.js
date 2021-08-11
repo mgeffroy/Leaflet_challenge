@@ -71,15 +71,15 @@ var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function(myMap) {
   var div = L.DomUtil.create("div", "legend");
-  div.innerHTML += "<h4>Tegnforklaring</h4>";
-  div.innerHTML += '<i style="background: #477AC2"></i><span>Water</span><br>';
-  div.innerHTML += '<i style="background: #448D40"></i><span>Forest</span><br>';
-  div.innerHTML += '<i style="background: #E6E696"></i><span>Land</span><br>';
-  div.innerHTML += '<i style="background: #E8E6E0"></i><span>Residential</span><br>';
-  div.innerHTML += '<i style="background: #FFFFFF"></i><span>Ice</span><br>';
-  div.innerHTML += '<i class="icon" style="background-image: url(https://d30y9cdsu7xlg0.cloudfront.net/png/194515-200.png);background-repeat: no-repeat;"></i><span>Grænse</span><br>';
-  
-  
+  div.innerHTML += "<h4>Earthquake depth</h4>";
+  div.innerHTML += '<i style="background: #cc0000"></i><span> more than 100 </span><br>';
+  div.innerHTML += '<i style="background: #ff7800"></i><span> 80 to 99 </span><br>';
+  div.innerHTML += '<i style="background: #ff9234"></i><span>60 to 79</span><br>';
+  div.innerHTML += '<i style="background: #ffee00"></i><span>40 to 59</span><br>';
+  div.innerHTML += '<i style="background: #fff976"></i><span>20 to 39</span><br>';
+  div.innerHTML += '<i style="background: #82cc00"></i><span>10 to 19</span><br>';
+  div.innerHTML += '<i style="background: #008a33"></i><span>less than 10</span><br>';
+ 
 
   return div;
 };
