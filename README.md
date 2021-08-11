@@ -19,6 +19,9 @@ The final map has circles that mark all the earthquakes that have happend all ov
 
 ![image](https://user-images.githubusercontent.com/79372976/128950769-917f74f7-9c95-4c29-9915-9fdc3a5d2c38.png)
 
+![image](https://user-images.githubusercontent.com/79372976/129115967-c68b3866-1292-4549-8c71-3a4f80958f53.png)
+
+
 
 
 *This was created by: Mariana Geffroy*
