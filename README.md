@@ -17,7 +17,11 @@ Both repository folders are organized as listed here:
 ## Outcome 
 The final map has circles that mark all the earthquakes that have happend all over the world in the last week. Circle size and color change depending on the depth and magnitude of the earthquake. If a circle is clicked it will give the location, magnitude and depth of that specific earthquake. The map might look like this:
 
-![image](https://user-images.githubusercontent.com/79372976/128950769-917f74f7-9c95-4c29-9915-9fdc3a5d2c38.png)
+![image](https://user-images.githubusercontent.com/79372976/129116081-901e3844-5eb4-48ad-b0fe-d72f64d6a20e.png)
+
+
+![image](https://user-images.githubusercontent.com/79372976/129115967-c68b3866-1292-4549-8c71-3a4f80958f53.png)
+
 
 
 
